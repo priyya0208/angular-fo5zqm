@@ -7,9 +7,12 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { PagenotfountComponent } from './pagenotfount/pagenotfount.component';
+import { AuthService } from './auth.service';
+import { HomeComponent } from './home/home.component';
 const appRoutes: Routes = [
   {path:'login', component: LoginComponent},
   {path:'register', component: RegisterComponent},
+  {path:'home', component:HomeComponent},
   {path:'', component:LoginComponent},
   {path:'**', component:PagenotfountComponent}
 ]
@@ -17,7 +20,8 @@ const appRoutes: Routes = [
   imports:      [ 
     RouterModule.forRoot(appRoutes, {enableTracing:true}),
     BrowserModule, FormsModule ],
-  declarations: [ AppComponent, LoginComponent, RegisterComponent, PagenotfountComponent ],
-  bootstrap:    [ AppComponent ]
+  declarations: [ AppComponent, LoginComponent, RegisterComponent, PagenotfountComponent, HomeComponent ],
+  bootstrap:    [ AppComponent ],
+  providers: [AuthService]
 })
 export class AppModule { }
