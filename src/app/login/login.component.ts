@@ -16,10 +16,7 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     if(this.email == "user@gmail.com" && this.pwd == "password"){
       this.router.navigate(['/home']);
-      
-    }
-    else {
-      this.router.navigate(['/register']);
+
     }
   }
 }
