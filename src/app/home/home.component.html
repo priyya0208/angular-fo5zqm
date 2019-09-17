@@ -37,8 +37,11 @@
     </tr>
   </thead>
   <tbody>
-    <tr >
-      <td *ngFor="let data of cutomerdata">{{data}}</td>
+    <tr  *ngFor="let data of cutomerdata">
+      <td>{{data.fname}}</td>
+      <td>{{data.lname}}</td>
+      <td>{{data.address}}</td>
+      <td>{{data.phoneno}}</td>
     </tr>
     
   </tbody>

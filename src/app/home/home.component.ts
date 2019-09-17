@@ -11,7 +11,7 @@ import 'rxjs';
 export class HomeComponent implements OnInit {
 
   formdata;
-   cutomerdata;
+   cutomerdata = [];
    constructor(private http: Http) { }
    stateCtrl: FormControl;
    ngOnInit() {
@@ -28,12 +28,13 @@ export class HomeComponent implements OnInit {
          phoneno:new FormControl("")
       });
    }
+   
    onClickSubmit(data) {
       document.getElementById("custtable").style.display="";
-      this.cutomerdata = [];
-      for (var prop in data) {
-         this.cutomerdata.push(data[prop]);
-      }
+      
+      console.log(data);
+      this.cutomerdata.push(data);
+      
       console.log(this.cutomerdata);
    }
 
