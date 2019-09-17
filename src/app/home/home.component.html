@@ -1,29 +1,49 @@
 <div class="container-fluid">
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
-    <h1 class="display-4">Fluid jumbotron</h1>
-    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
-  </div>
+     <form [formGroup]="formdata" (ngSubmit) = "onClickSubmit(formdata.value)" >
+       <h3>User Details</h3>
+    <div class="form-group">
+      <label for="email">FirstName :</label>
+      <input type="text" class="form-control"name="fname" formControlName="fname">
+    </div>
+    <div class="form-group">
+      <label for="pwd">LastName :</label>
+      <input type="text" class="form-control" name="lname" formControlName="lname">
+    </div>
+
+    <div class="form-group">
+      <label for="pwd">Address  :</label>
+      <input type="text" class="form-control" name="address" formControlName="address">
+    </div>
+
+    <div class="form-group">
+      <label for="pwd">Phone No :</label>
+      <input type="text" class="form-control" name="phoneno" formControlName="phoneno">
+    </div>
+    <button type="submit" [disabled]="!formdata.valid" value="Submit" class="btn btn-default">Submit</button>
+  </form>
 </div>
 
 <div class="container">
-<div class="row">
-      <div class="col-md-4">
-        <h2>Heading</h2>
-        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-        <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
-      </div>
-      <div class="col-md-4">
-        <h2>Heading</h2>
-        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-        <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
-      </div>
-      <div class="col-md-4">
-        <h2>Heading</h2>
-        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
-      </div>
-    </div>
+<div id="custtable" style="display:none;margin:0 auto;">
+      <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">FirstName</th>
+      <th scope="col">LastName</th>
+      <th scope="col">Address</th>
+      <th scope="col">Phone No</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr >
+      <td *ngFor="let data of cutomerdata">{{data}}</td>
+    </tr>
+    
+  </tbody>
+</table>
+</div>
 </div>
 
 </div>
@@ -31,5 +51,5 @@
 <footer class="footer">
     <div class="container">
         <span class="text-muted">Place sticky footer content here.</span>
-    </div>
+      </div>
 </footer>
